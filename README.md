@@ -9,10 +9,24 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```
+#include<stdio.h>
+int main()
+{
+    double n=23.65;
+    double *pn=&n;
+    printf("Before modifing: %.2f",*pn);
+    *pn=25.0;
+    printf("\nAfter modifing: %.0f",*pn);
+}
+
+
+
+```
 
 ## OUTPUT:
  	
-
+![alt text](<Screenshot (31).png>)
 
 
 
@@ -45,7 +59,24 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include<stdio.h>
+int calculateProduct(int n)
+{
+    if (n == 1){return 1;}
+    else{return n*calculateProduct(n-1);}
+}
+int main()
+{
+    unsigned long long num =12;
+    printf("The product of first 12 natural numbers is: %lld",calculateProduct(num));
+
+
+}
+```
 ## OUTPUT:
+
+![alt text](<Screenshot (32).png>)
          		
 ## RESULT:
 
@@ -68,18 +99,44 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
+```
+#include<stdio.h>
+int main()
+{
+    int r,c;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for (int i=0;i<r;i++)
+    {   
+        for(int j=0;j<c;j++)
+        {
+            scanf("%d",&arr[i][j]);
+        }
+    }
+     for (int i=0;i<r;i++)
+    {   
+        int sum=0;
+        for(int j=0;j<c;j++)
+        {
+            sum+=arr[i][j];
+        }
+        printf("The sum of %dth row is %d\n",i+1,sum);
+    }
+}
+
+```
 
 
 
 ## OUTPUT
 
 
- 
+ ![alt text](<Screenshot (33).png>)
  
 
  ## RESULT
  
-
+Thus the C program to find the sum of each row is executed successfully
 
 # EX-24-STRINGS
 
@@ -96,11 +153,35 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    int num_rows, len, i, j, k;
+    scanf("%s", str);
+    scanf("%d", &num_rows);
+    len = strlen(str);
+    for(i = 1; i <= num_rows; i++) {
+        int midpoint = (2 * num_rows - 1) / 2;
+        for(j = 0; j < (2 * num_rows - 1); j++) {
+            if(j >= midpoint - (i - 1) && j <= midpoint + (i - 1)) {
+                k = (j - (midpoint - (i - 1))) % len;
+                printf("%c", str[k]);
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
 
+```
 
  ## OUTPUT
 
- 
+ ![alt text](<Screenshot (34).png>)
 
 ## RESULT
 
@@ -132,10 +213,25 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include<stdio.h>
+int main()
+{
+    int n=10;
+    int arr[n];
+    int *parr=&arr;
+    for (int i=0;i<n;i++)
+    {scanf("%d",&arr[i]);}
+    printf("deferencing the values using pointer\n");
+    for (int i=0;i<n;i++)
+    {printf("%d ",*(parr+i));}
+}
+
+```
 
 ## OUTPUT
 
- 
+ ![alt text](<Screenshot (35).png>)
 
 ## RESULT
 
